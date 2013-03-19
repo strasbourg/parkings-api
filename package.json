@@ -1,0 +1,24 @@
+{
+  "name": "strasbourg-parking-api",
+  "version": "0.0.0",
+  "description": "ERROR: No README.md file found!",
+  "main": "index.js",
+  "dependencies": {
+    "coffee-script": "1.6.x",
+    "express": "~3.1.0",
+    "async": "~0.2.6",
+    "request": "~2.16.2",
+    "xml2js": "~0.2.6"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "engines": {
+    "node": "0.8.x",
+    "npm": "1.2.x"
+  },
+  "repository": "",
+  "author": "",
+  "license": "BSD"
+}
