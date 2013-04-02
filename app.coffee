@@ -1,12 +1,13 @@
 express = require 'express'
 async = require 'async'
 dataSources = require('./data_sources').sources
+logRequest = require('./log_request').logRequest
 
 app = express()
 
 app.get '/', (req, res) -> res.redirect('/parkings')
 
-app.get '/parkings', (req, res) ->
+app.get '/parkings', logRequest, (req, res) ->
   async.parallel(
     dataSources.map (dataSource) ->
       (cb) -> dataSource.fetch.call dataSource, cb
