@@ -49,5 +49,8 @@ class BaseSource
     parseString data, (err, data) =>
       @rootPath data, (err, items) =>
         mapWaterfall items, @_transformations(), (err, items) ->
-          cb(err, items)
+          itemsHsh = {}
+          items.forEach (item) ->
+            itemsHsh[item.id] = item
+          cb(err, itemsHsh)
 exports.BaseSource = BaseSource
