@@ -9,7 +9,6 @@ exports.logRequest = (req, res, next) ->
     path: req.url
     params: ''
     time: moment().format()
-  console.log record
   request
     url: 'http://stats.strasbourg-data.fr/track'
     method: 'POST'
