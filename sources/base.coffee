@@ -26,6 +26,8 @@ class BaseSource
     request
       url: @url
       (e, r, result) =>
+        result = @cachedHTTPResponse if e and @cachedHTTPResponse
+        @cachedHTTPResponse = result
         @parse result, cb
   parseNumberAttributes: (item, cb) =>
     @integerAttributes.forEach (attr) -> item[attr] = parseInt(item[attr])
@@ -47,6 +49,8 @@ class BaseSource
     )
   parse: (data, cb) ->
     parseString data, (err, data) =>
+      data = @cachedXml if err and @cachedXml
+      @cachedXml = data
       @rootPath data, (err, items) =>
         mapWaterfall items, @_transformations(), (err, items) ->
           itemsHsh = {}
